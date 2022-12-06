@@ -1,0 +1,2968 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Cosserat rod theory
+\end_layout
+
+\begin_layout Standard
+The main focus of this work is to apply Cosserat rod theory to model slender
+ microswimmers, and we will therefore not give a detailed exposition of
+ Cosserat rod theory and instead refer to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Antman2005"
+literal "false"
+
+\end_inset
+
+ for a rigorous and general derivation and to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Linn2013,Lang2013"
+literal "false"
+
+\end_inset
+
+ specifically for a Cosserat rod theory of linear viscouselastic materials.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Configuration variables
+\end_layout
+
+\begin_layout Standard
+The Cosserat rod is a three dimensional body made up of a set of material
+ points which carry mass, can be acted upon by forces and occupy regions
+ in Euclidean 3 dimensional space 
+\begin_inset Formula $\mathbb{E}^{3}$
+\end_inset
+
+.
+ The configuration variables of the Cosserat rod are its centreline 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{r}(s,t)=r_{1}(s,t)\boldsymbol{e}_{1}+r_{2}(s,t)\boldsymbol{e}_{2}+r_{3}(s,t)\boldsymbol{e}_{3},\label{eq: centreline}
+\end{equation}
+
+\end_inset
+
+and its local frame vectors 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{d}_{k}(s,t)=d_{k,1}(s,t)\boldsymbol{e}_{1}+d_{k,2}(s,t)\boldsymbol{e}_{2}+d_{k,3}(s,t)\boldsymbol{e}_{3},\quad k=\{1,2,3\}\label{eq: body frame}
+\end{equation}
+
+\end_inset
+
+which we refer to as the body frame vectors.
+ The centreline and body frame vectors are both assumed to be smooth vector-valu
+ed functions of the curve parameter 
+\begin_inset Formula $s$
+\end_inset
+
+ and the time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Their components 
+\begin_inset Formula $r_{i}(s,t)$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{k,i}(s,t)$
+\end_inset
+
+ are expressed in terms of a fixed global cartesian orthonormal reference
+ frame 
+\begin_inset Formula $\{\boldsymbol{e}_{1},\boldsymbol{e}_{2},\boldsymbol{e}_{3}\}$
+\end_inset
+
+ which we will refer to as the lab frame.
+ Any generic vector 
+\begin_inset Formula $\boldsymbol{v}$
+\end_inset
+
+ can be either represented in the lab or in the body frame
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{v} & =v_{1}\boldsymbol{e}_{1}+v_{2}\boldsymbol{e}_{2}+v_{3}\boldsymbol{e}_{3}=\overline{v}_{1}\boldsymbol{d}_{1}+\overline{v}_{2}\boldsymbol{d}_{2}+\overline{v}_{3}\boldsymbol{d}_{3}.\label{eq: generic vector}
+\end{align}
+
+\end_inset
+
+For the remainder, we will distinguish the body frame representation 
+\begin_inset Formula $\overline{\boldsymbol{v}}=(\overline{v}_{1},\overline{v}_{2},\overline{v}_{3})$
+\end_inset
+
+ of a vector from its lab frame representation 
+\begin_inset Formula $\boldsymbol{v}=(v_{1},v_{2},v_{3})$
+\end_inset
+
+ by a bar superscript.
+ For a given position 
+\begin_inset Formula $s$
+\end_inset
+
+, the body frame and the lab frame can be related via an orthogonal rotation
+ matrix 
+\begin_inset Formula $\boldsymbol{Q}(s,t)$
+\end_inset
+
+ which we define such that
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{d}_{k}(s,t)=\boldsymbol{Q}^{T}(s,t)\boldsymbol{e}_{k}.\label{eq: frame trafo}
+\end{equation}
+
+\end_inset
+
+From equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: frame trafo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ follows than that a vector 
+\begin_inset Formula $\boldsymbol{v}$
+\end_inset
+
+ in the lab frame can be transformed into the body frame via the equation
+ 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{Q}(s,t)\boldsymbol{v}=\overline{\boldsymbol{v}}(s,t).\label{eq: vector trafo}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Expressing the body frame in terms of Euler angles 
+\end_layout
+
+\begin_layout Standard
+In equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: frame trafo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the orthogonal rotation matrix 
+\begin_inset Formula $\boldsymbol{Q}(s,t)$
+\end_inset
+
+ is defined which transforms the global lab frame vectors 
+\begin_inset Formula $\boldsymbol{e}_{k}$
+\end_inset
+
+ to the local body frame vectors 
+\begin_inset Formula $\boldsymbol{d}_{k}(s,t)$
+\end_inset
+
+.
+ The rotation matrix 
+\begin_inset Formula $\boldsymbol{Q}(s,t)$
+\end_inset
+
+ can be expressed in terms of three Euler angles 
+\begin_inset Formula $\alpha_{1}(s,t),\alpha_{2}(s,t),\alpha_{3}(s,t)\in[0,2\pi]$
+\end_inset
+
+ which reference arc length 
+\begin_inset Formula $s$
+\end_inset
+
+ and time 
+\begin_inset Formula $t$
+\end_inset
+
+ dependent.
+ Using the Euler angles, the rotation matrix 
+\begin_inset Formula $\boldsymbol{Q}(s,t)$
+\end_inset
+
+ can be expressed in terms of the product of three rotation matrices 
+\begin_inset Formula $\boldsymbol{R}_{i}(\alpha_{i})$
+\end_inset
+
+ such that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{Q}=\boldsymbol{R}_{3}(\alpha_{3})\boldsymbol{R}_{2}(\alpha_{2})\boldsymbol{R}_{1}(\alpha_{1}).\label{eq: Q Euler angles}
+\end{equation}
+
+\end_inset
+
+Each individual rotation matrix 
+\begin_inset Formula $\boldsymbol{R}_{i}(\alpha_{i})$
+\end_inset
+
+ performs a rotation around the basis vector 
+\begin_inset Formula $\boldsymbol{e}_{i}$
+\end_inset
+
+ by an angle 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and is therefore defined as 
+\begin_inset Formula 
+\[
+\boldsymbol{R}_{1}=\begin{bmatrix}1 & 0 & 0\\
+0 & \cos\alpha_{1} & -\sin\alpha_{1}\\
+0 & \sin\alpha_{1} & \cos\alpha_{1}
+\end{bmatrix},\quad,\boldsymbol{R}_{2}=\begin{bmatrix}\cos\alpha_{2} & 0 & \sin\alpha_{2}\\
+0 & 1 & 0\\
+-\sin\alpha_{2} & 0 & \cos\alpha_{2}
+\end{bmatrix},\quad\boldsymbol{R}_{3}=\begin{bmatrix}\cos\alpha_{3} & -\sin\alpha_{3} & 0\\
+\sin\alpha_{3} & \cos\alpha_{3} & 0\\
+0 & 0 & 1
+\end{bmatrix}.
+\]
+
+\end_inset
+
+Defining the Euler angle vector 
+\begin_inset Formula $\boldsymbol{\alpha}(s,t)=(\alpha_{1},\alpha_{2},\alpha_{3})$
+\end_inset
+
+ equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: frame trafo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ can be written as 
+\begin_inset Formula 
+\[
+\boldsymbol{d}_{k}(\boldsymbol{\alpha})=\boldsymbol{Q}^{T}(\boldsymbol{\alpha})\boldsymbol{e}_{k}.
+\]
+
+\end_inset
+
+Thus, instead as using the body frame vectors 
+\begin_inset Formula $\boldsymbol{d}_{k}(s,t)$
+\end_inset
+
+ as configuration variables, the Euler angles 
+\begin_inset Formula $\boldsymbol{\alpha}(s,t)$
+\end_inset
+
+ can be used instead.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Spatial configuration of Cosserat rods
+\end_layout
+
+\begin_layout Standard
+Since a Cosserat rod occupies a region in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+, material points can be put in a one-to-one correspondence with positions
+ in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ One of these correspondences is chosen as a reference configuration which
+ maps material points to a triple of curvilinear coordinates denoted as
+ 
+\begin_inset Formula $(\xi_{1},\xi_{2},s)$
+\end_inset
+
+.
+ The position 
+\begin_inset Formula $\boldsymbol{X}(\xi_{1},\xi_{2},s)$
+\end_inset
+
+ of material points in the reference configuration is given by 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{X}(\xi_{1},\xi_{2},s)=\boldsymbol{r}_{0}(s)+\xi_{1}\boldsymbol{d}_{1}^{0}(s)+\xi_{2}\boldsymbol{d}_{2}^{0}(s),\label{eq: reference material points}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\boldsymbol{r}_{0}(s)\in\mathbb{E}^{3}$
+\end_inset
+
+ is the rods centreline and 
+\begin_inset Formula $\boldsymbol{d}_{1}^{0}(s),\boldsymbol{d}_{2}^{0}(s)$
+\end_inset
+
+ are the first two body frame vector which span the cross sectional plane
+ in the reference configuration.
+ The curve parameter 
+\begin_inset Formula $s\in[-l_{0},l_{0}]$
+\end_inset
+
+ is chosen to be the arc length of the centreline 
+\begin_inset Formula $\boldsymbol{r}_{0}(s)$
+\end_inset
+
+ and we thus refer to 
+\begin_inset Formula $L_{0}=2l_{0}$
+\end_inset
+
+ as the reference length of the swimmer's body.
+ The position 
+\begin_inset Formula $\boldsymbol{x}(\xi_{1},\xi_{2},s,t)$
+\end_inset
+
+ of the material points in the current deformed configuration is in general
+ given by
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{x}(\xi_{1},\xi_{2},s,t)=\boldsymbol{r}(s,t)+\xi_{1}\boldsymbol{d}_{1}(s,t)+\xi_{2}\boldsymbol{d}_{2}(s,t)+\boldsymbol{w}(\boldsymbol{r},\boldsymbol{d}_{1},\boldsymbol{d}_{2},\xi_{1},\xi_{2},s).\label{eq: current material points}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\boldsymbol{w}(\xi_{1},\xi_{2},s,t)$
+\end_inset
+
+ being an additional displacement field which describes in- and out-of-plane
+ warping deformations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Antman2005"
+literal "false"
+
+\end_inset
+
+.
+ Remember that 
+\begin_inset Formula $s$
+\end_inset
+
+ is the arc length in the reference configuration which should not be confused
+ with the arc length 
+\begin_inset Formula $S(t)$
+\end_inset
+
+ of the current configuration which is in general time dependent because
+ the Cosserat rod is extensible.
+ For the remainder, we will write derivatives with respect to 
+\begin_inset Formula $s$
+\end_inset
+
+ and and time 
+\begin_inset Formula $t$
+\end_inset
+
+ as 
+\begin_inset Formula $\partial s$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial t$
+\end_inset
+
+, respectively.
+ The stretch compression ratio 
+\begin_inset Formula $\epsilon(s,t)$
+\end_inset
+
+ is defined as the derivative of the current arc length 
+\begin_inset Formula $S(s,t)$
+\end_inset
+
+ with respect to the reference arc length 
+\begin_inset Formula 
+\begin{equation}
+\epsilon(s,t)=\frac{dS(s,t)}{ds}=\left|\partial_{s}\boldsymbol{r}(s,t)\right|.\label{eq: stretch compression ratio}
+\end{equation}
+
+\end_inset
+
+If 
+\begin_inset Formula $\epsilon(s,t)>1$
+\end_inset
+
+, then we say that the current centreline is locally stretched, if 
+\begin_inset Formula $\epsilon(\hat{s},t)>1$
+\end_inset
+
+ then the say that the current centreline is locally compressed.
+ 
+\end_layout
+
+\begin_layout Standard
+The shape of the rod's individual cross sections in the reference configuration
+ determines the domain 
+\begin_inset Formula $\mathcal{A}(s)\subset\mathbb{R}^{2}$
+\end_inset
+
+ of the cartesian coordinates 
+\begin_inset Formula $\xi_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\xi_{2}$
+\end_inset
+
+ which is 
+\begin_inset Formula $s$
+\end_inset
+
+ dependent in case of a tapered body.
+ If we choose the geometrical centre of 
+\begin_inset Formula $\mathcal{A}(s)$
+\end_inset
+
+ to coincide with the origin of 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \xi_{i}\right\rangle _{\mathcal{A}(s)}=\int_{\mathcal{A}(s)}\xi_{i}\,d\xi_{1}d\xi_{2}=0.\label{eq: <x_i>}
+\end{equation}
+
+\end_inset
+
+The body frame vectors 
+\begin_inset Formula $\boldsymbol{d}_{1}^{0}(s)$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{d}_{2}^{0}(s)$
+\end_inset
+
+ are assumed to coincide with the principal axes of the cross section in
+ the reference configuration so that the product moment 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \xi_{i}\xi_{j}\right\rangle _{\mathcal{A}(s)}=\int_{\mathcal{A}(s)}\xi_{i}\xi_{j}d\xi_{1}d\xi_{2}=0,\label{eq: <x_i x_j>}
+\end{equation}
+
+\end_inset
+
+is zero.
+ Relevant geometrical properties of a cross section are the cross-sectional
+ area 
+\begin_inset Formula $A_{0}(s)$
+\end_inset
+
+ given by the integral
+\begin_inset Formula 
+\begin{equation}
+A_{0}(s)=\int_{\mathcal{A}(s)}d\xi_{1}d\xi_{2},\label{eq: A_0-1}
+\end{equation}
+
+\end_inset
+
+and the planar and polar second moments of area 
+\begin_inset Formula $I_{1}^{(0)},I_{2}^{(0)},I_{3}^{(0)}$
+\end_inset
+
+ defined as
+\begin_inset Formula 
+\begin{align}
+I_{1}^{0}(s) & =\left\langle \xi_{2}^{2}\right\rangle _{\mathcal{A}(s)}=\int_{\mathcal{A}(s)}\xi_{2}^{2}\,d\xi_{1}d\xi_{2},\nonumber \\
+I_{2}^{0}(s) & =\left\langle \xi_{1}^{2}\right\rangle _{\mathcal{A}(s)}=\int_{\mathcal{A}(s)}\xi_{1}^{2}\,d\xi_{1}d\xi_{2},\nonumber \\
+I_{3}^{0}(s) & =\left\langle \xi_{2}^{2}+\xi_{1}^{2}\right\rangle _{\mathcal{A}(s)}=I_{1}^{0}(s)+I_{2}^{0}(s).
+\end{align}
+
+\end_inset
+
+Integrating equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: reference material points"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ over the domain 
+\begin_inset Formula $\mathcal{A}(s)$
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\[
+\boldsymbol{r}_{0}(s)=\frac{\left\langle \boldsymbol{X}\right\rangle _{\mathcal{A}(s)}}{A_{0}(s)},
+\]
+
+\end_inset
+
+where we used equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: <x_i>"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The centreline in the reference configuration is therefore given by the
+ average position 
+\begin_inset Formula $\boldsymbol{X}$
+\end_inset
+
+ of material points within a cross section.
+ Another important property of the cross section is its centre of mass which
+ is given by
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{R}_{0}(s)=\frac{\int\rho_{0}(\xi_{1},\xi_{2},s)\boldsymbol{X}(\xi_{1},\xi_{2},s)j(\xi_{1},\xi_{2},s)\,d\xi_{1}d\xi_{2}}{\varrho_{0}(s)},\label{eq: centre of mass}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\rho_{0}(s,\xi_{1},\xi_{2})$
+\end_inset
+
+ being the mass density in the reference configuration, 
+\begin_inset Formula $\varrho_{0}(s)$
+\end_inset
+
+ the mass density per reference arc-length 
+\begin_inset Formula $\varrho(s)$
+\end_inset
+
+ defined as 
+\begin_inset Formula 
+\begin{equation}
+\varrho_{0}(s)=\int\rho(s,\xi_{1},\xi_{2})\,j(\xi_{1},\xi_{2},s)d\xi_{1}d\xi_{2}.\label{eq: line mass density}
+\end{equation}
+
+\end_inset
+
+and 
+\begin_inset Formula $j(\xi_{1},\xi_{2},s)$
+\end_inset
+
+ Jacobian given by the magnitude of the triple product of the curvilinear
+ basis vectors
+\begin_inset Formula 
+\begin{equation}
+j(\xi_{1},\xi_{2},s)=\left|\frac{\partial\boldsymbol{X}}{\partial\xi_{1}}\cdot\left(\frac{\partial\boldsymbol{X}}{\partial\xi_{2}}\times\frac{\partial\boldsymbol{X}}{\partial\xi_{s}}\right)\right|.\label{eq: jacobian}
+\end{equation}
+
+\end_inset
+
+In this study, we assume of a straight strain free reference configuration
+ given by 
+\begin_inset Formula 
+\[
+\boldsymbol{X}(\xi_{1},\xi_{2},s)=s\boldsymbol{d}_{3}+\xi_{1}\boldsymbol{d}_{1}+\xi_{3}\boldsymbol{d}_{2},
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $s$
+\end_inset
+
+ independent body frame vectors 
+\begin_inset Formula $\boldsymbol{d}_{i}(s)=\boldsymbol{d}_{i}$
+\end_inset
+
+.
+ For a straight configuration, equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: jacobian"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+simplifies to 
+\begin_inset Formula $j(\xi_{1},\xi_{2},s)=1$
+\end_inset
+
+.
+ Substituting the r.h.s.
+ of equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: reference material points"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the position vector 
+\begin_inset Formula $\boldsymbol{X}$
+\end_inset
+
+ into equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: centre of mass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{R}_{0}(s)=\boldsymbol{r}_{0}(s)+\frac{\int\rho(s,\xi_{1},\xi_{2})\xi_{1}d\xi_{1}d\xi_{2}\boldsymbol{d}_{1}^{0}+\int\rho(s,\xi_{1},\xi_{2})\xi_{2}d\xi_{1}d\xi_{2}\boldsymbol{d}_{1}^{0}}{\varrho(s)}.\label{eq: centre of mass-1}
+\end{equation}
+
+\end_inset
+
+If we assume an rotational symmetric mass density 
+\begin_inset Formula $\rho(s,\xi_{1},\xi_{2})=\rho(s,\zeta)$
+\end_inset
+
+ with 
+\begin_inset Formula $\zeta^{2}=\xi_{1}^{2}+\xi_{2}^{2}$
+\end_inset
+
+ then the integrals in equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: centre of mass-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ vanish, i.e.
+ the center of mass 
+\begin_inset Formula $\boldsymbol{R}_{0}(s)$
+\end_inset
+
+ and the centreline 
+\begin_inset Formula $\boldsymbol{r}_{0}(s)$
+\end_inset
+
+ coincide 
+\begin_inset Formula $\boldsymbol{R}_{0}(s)=\boldsymbol{r}_{0}(s)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Compute basis vectors in curvilinear coordinates
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\boldsymbol{X}}{\partial s} & =\partial_{s}\left(\boldsymbol{r}_{0}(s)+\xi_{1}\boldsymbol{d}_{1}^{0}(s)+\xi_{2}\boldsymbol{d}_{2}^{0}(s)\right)\\
+ & =\partial_{s}\boldsymbol{r}_{0}(s)+\xi_{1}\partial_{s}\boldsymbol{d}_{1}^{0}(s)+\xi_{2}\partial_{s}\boldsymbol{d}_{2}^{0}(s)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+In the reference configuration 
+\begin_inset Formula 
+\begin{align*}
+\partial_{s}\boldsymbol{d}_{i}^{0}(s) & =\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{i}^{0}(s).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Substituting in the above equation yields 
+\begin_inset Formula 
+\[
+\frac{\partial\boldsymbol{X}}{\partial s}=\partial_{s}\boldsymbol{r}_{0}(s)+\xi_{1}\left(\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{1}^{0}(s)\right)+\xi_{2}\left(\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{2}^{0}(s)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+The basis vectors are given by 
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\boldsymbol{X}}{\partial\xi_{1}} & =\boldsymbol{d}_{1}^{0}(s)\\
+\frac{\partial\boldsymbol{X}}{\partial\xi_{2}} & =\boldsymbol{d}_{2}^{0}(s)\\
+\frac{\partial\boldsymbol{X}}{\partial s} & =\partial_{s}\boldsymbol{r}_{0}(s)+\xi_{1}\left(\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{1}^{0}(s)\right)+\xi_{2}\left(\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{2}^{0}(s)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Volume element is given by the triple product 
+\begin_inset Formula 
+\begin{align*}
+dV & =\left|\frac{\partial\boldsymbol{X}}{\partial\xi_{1}}\cdot\left(\frac{\partial\boldsymbol{X}}{\partial\xi_{2}}\times\frac{\partial\boldsymbol{X}}{\partial s}\right)\right|d\xi_{1}d\xi_{2}ds\\
+ & =\left|\boldsymbol{d}_{1}^{0}(s)\cdot\left\{ \boldsymbol{d}_{2}^{0}(s)\times\left[\partial_{s}\boldsymbol{r}_{0}(s)+\xi_{1}\left(\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{1}^{0}(s)\right)+\xi_{2}\left(\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{2}^{0}(s)\right)\right]\right\} \right|\\
+ & =\left|\boldsymbol{d}_{1}^{0}(s)\cdot\left[\boldsymbol{d}_{2}^{0}(s)\times\partial_{s}\boldsymbol{r}_{0}(s)+\xi_{1}\boldsymbol{d}_{2}^{0}(s)\times\left(\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{1}^{0}(s)\right)+\xi_{2}\boldsymbol{d}_{2}^{0}(s)\times\left(\boldsymbol{\kappa}_{0}\times\boldsymbol{d}_{2}^{0}(s)\right)\right]\right|\\
+ & =\left|\boldsymbol{d}_{1}^{0}(s)\cdot\left[\boldsymbol{d}_{2}^{0}(s)\times\partial_{s}\boldsymbol{r}_{0}(s)-\xi_{1}\boldsymbol{d}_{1}^{0}(s)\overline{\kappa}_{2}^{0}+\xi_{2}\left(\boldsymbol{\kappa}_{0}-\boldsymbol{d}_{2}^{0}(s)\overline{\kappa}_{2}^{0}\right)\right]\right|\\
+ & =\left|\boldsymbol{d}_{1}^{0}(s)\cdot\left(\boldsymbol{d}_{2}^{0}(s)\times\partial_{s}\boldsymbol{r}_{0}(s)\right)-\xi_{1}\overline{\kappa}_{2}^{0}+\xi_{2}\overline{\kappa}_{1}^{0}\right|\\
+ & =\left|\partial_{s}\boldsymbol{r}_{0}(s)\cdot\left(\boldsymbol{d}_{1}^{0}(s)\times\boldsymbol{d}_{2}^{0}(s)\right)-\xi_{1}\overline{\kappa}_{2}^{0}+\xi_{2}\overline{\kappa}_{1}^{0}\right|\\
+ & =\left|\partial_{s}\boldsymbol{r}_{0}(s)\cdot\boldsymbol{d}_{3}^{0}(s)-\xi_{1}\overline{\kappa}_{2}^{0}+\xi_{2}\overline{\kappa}_{1}^{0}\right|\\
+ & =\left|\left(1+\overline{\sigma}_{3}^{0}\right)-\xi_{1}\overline{\kappa}_{2}^{0}+\xi_{2}\overline{\kappa}_{1}^{0}\right|
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+where we used in the last line that
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{\sigma}_{0} & =\partial_{s}\boldsymbol{r}_{0}(s)-\boldsymbol{d}_{3}^{0}\\
+\partial_{s}\boldsymbol{r}_{0}(s) & =\boldsymbol{\sigma}_{0}+\boldsymbol{d}_{3}^{0}\\
+ & =\overline{\sigma}_{1}^{0}\boldsymbol{d}_{1}^{0}+\overline{\sigma}_{2}^{0}\boldsymbol{d}_{1}^{0}+\left(1+\overline{\sigma}_{3}^{0}\right)\boldsymbol{d}_{3}^{0}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+For the remainder, we consider the special case of lateral displacement
+ field 
+\begin_inset Formula $\boldsymbol{w}$
+\end_inset
+
+ as defined in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gazzola2018"
+literal "false"
+
+\end_inset
+
+ with given by 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{w}(\xi_{1},\xi_{2},s,t)=\frac{1-\sqrt{\epsilon(s,t)}}{\sqrt{\epsilon(s,t)}}\left[\xi_{1}\boldsymbol{d}_{1}(s,t)+\xi_{2}\boldsymbol{d}_{2}(s,t)\right].\label{eq: warping function}
+\end{equation}
+
+\end_inset
+
+Here, 
+\begin_inset Formula $\epsilon(s,t)$
+\end_inset
+
+ is the stretch compression ratio which we defined in equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: stretch compression ratio"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Substituting into equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: current material points"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{x}(\xi_{1},\xi_{2},s,t)=\boldsymbol{r}(s,t)+\frac{\xi_{1}\boldsymbol{d}_{1}(s,t)+\xi_{2}\boldsymbol{d}_{2}(s,t)}{\sqrt{\epsilon(s,t)}}.\label{eq: current material points-1}
+\end{equation}
+
+\end_inset
+
+In the current configuration, the cross-sectional area 
+\begin_inset Formula $A(s,t)$
+\end_inset
+
+ is given by 
+\begin_inset Formula 
+\begin{equation}
+A(s,t)=\int_{\mathcal{A}(s)}\left|\frac{\partial\boldsymbol{x}}{\partial\xi_{1}}\times\frac{\partial\boldsymbol{x}}{\partial\xi_{2}}\right|d\xi_{1}d\xi_{2},\label{eq: current cross area}
+\end{equation}
+
+\end_inset
+
+with the curvilinear surface element 
+\begin_inset Formula $dS_{s}$
+\end_inset
+
+ for constant 
+\begin_inset Formula $s$
+\end_inset
+
+ being given by 
+\begin_inset Formula 
+\[
+dS_{s}=\left|\frac{\partial\boldsymbol{x}}{\partial\xi_{1}}\times\frac{\partial\boldsymbol{x}}{\partial\xi_{2}}\right|d\xi_{1}d\xi_{2}.
+\]
+
+\end_inset
+
+If we choose 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ to be given by equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: current material points-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ then 
+\begin_inset Formula $dS_{s}$
+\end_inset
+
+ evaluates to 
+\begin_inset Formula 
+\begin{equation}
+dS_{s}=\frac{d\xi_{1}d\xi_{2}}{\epsilon(s,t)},\label{eq: curvi surface element}
+\end{equation}
+
+\end_inset
+
+and cross-sectional area 
+\begin_inset Formula $A(s,t)$
+\end_inset
+
+ is given by 
+\begin_inset Formula 
+\begin{equation}
+A(s,t)=\frac{\int_{\mathcal{A}(s)}d\xi_{1}d\xi_{2}}{\epsilon(s,t)}=\frac{A_{0}(s)}{\epsilon(s,t)}.\label{eq: current cross area-1}
+\end{equation}
+
+\end_inset
+
+Integrating equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: current material points-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ over the domain 
+\begin_inset Formula $\mathcal{A}(s)$
+\end_inset
+
+ yields
+\begin_inset Formula 
+\[
+\boldsymbol{r}(s,t)=\frac{\left\langle \boldsymbol{x}\right\rangle _{\mathcal{A}(s)}}{A_{0}(s)},
+\]
+
+\end_inset
+
+i.e.
+ as for the reference configuration, the centreline in the current configuration
+ is given by the average position of the material points within a cross
+ section.
+ The centre of mass in the current configuration is given by integral 
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{R}(s,t) & =\frac{\int_{\mathcal{A}(s)}\rho(\xi_{1},\xi_{2},s)\boldsymbol{x}(s,\xi_{1},\xi_{2},t)j(\xi_{1},\xi_{2},s)\,d\xi_{1}d\xi_{2}}{\varrho(s)}.\label{eq: current centre of mass}
+\end{align}
+
+\end_inset
+
+For the special case of a straight reference configuration, lateral displacement
+ 
+\begin_inset Formula $\boldsymbol{w}$
+\end_inset
+
+ given by equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: warping function"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, and a rotational symmetric mass density, the cross sectional centre of
+ mass 
+\begin_inset Formula $\boldsymbol{R}(s,t)$
+\end_inset
+
+ and the centreline 
+\begin_inset Formula $\boldsymbol{r}(s,t)$
+\end_inset
+
+ in the current configuration are equivalent 
+\begin_inset Formula $\boldsymbol{R}(s,t)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Taking the time derivative of equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: current material points-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ yields velocity 
+\begin_inset Formula $\partial_{t}\boldsymbol{x}$
+\end_inset
+
+ of the material points in the current configuration which is given by 
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\boldsymbol{x}=\partial_{t}\boldsymbol{r}+\xi_{1}\partial_{t}\boldsymbol{d}_{1}+\xi_{2}\partial_{t}\boldsymbol{d}_{1}-\frac{1}{2\epsilon^{3/2}}\left(\xi_{1}\boldsymbol{d}_{1}+\xi_{2}\boldsymbol{d}_{1}\right).\label{eq: material points velocity}
+\end{equation}
+
+\end_inset
+
+Here, we define the angular v 
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+The time derivative of the body frame vectors 
+\begin_inset Formula $\boldsymbol{d}_{i}(s,t)$
+\end_inset
+
+ is given by the Frenet-Serret type equation 
+\begin_inset Formula 
+\[
+\partial_{t}\boldsymbol{d}_{i}(s,t)=\boldsymbol{\omega}(s,t)\times\boldsymbol{d}_{i}(s,t),
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $\boldsymbol{\omega}(s,t)$
+\end_inset
+
+ being the angular velocity 
+\begin_inset Formula $\boldsymbol{\omega}$
+\end_inset
+
+ of the cross-section.
+ Equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: material points velocity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that there are three contributions to the velocity of a material
+ point, the centreline velocity, the rotation of cross section around, and
+ the warping deformation.
+ We now consider at to special cases, namely the case of rigid cross sections
+ 
+\begin_inset Formula $\boldsymbol{w}=0$
+\end_inset
+
+, and the case of incompressible rod whose cross sections shrink and extend
+ to compensate for stretch and compression of the centreline.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+depends on the reference is implicitly given by the inequality 
+\begin_inset Formula $\xi_{1}^{2}+\xi_{2}^{2}\leq R_{\text{max}}\varphi(s)$
+\end_inset
+
+ with 
+\begin_inset Formula $\varphi(s)$
+\end_inset
+
+ being the radius shape function and 
+\begin_inset Formula $R_{\text{max}}$
+\end_inset
+
+ being the body's maximal cross-sectional radius in the reference configuration.
+ The cross sectional area 
+\begin_inset Formula $A_{0}(s)$
+\end_inset
+
+ in the reference configuration is thus given by 
+\begin_inset Formula 
+\[
+A_{0}(s)=2\pi R_{\text{max}}^{2}\varphi^{2}(s).
+\]
+
+\end_inset
+
+We define slenderness parameter 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ of the rod as the ratio 
+\begin_inset Formula 
+\[
+\alpha=\frac{R_{\text{max}}}{l_{0}}.
+\]
+
+\end_inset
+
+To ensure incompressibility, we introduce the lateral warping deformation
+ The surface element 
+\begin_inset Formula $dS_{s}$
+\end_inset
+
+ for constant 
+\begin_inset Formula $s$
+\end_inset
+
+ in the deformed configuration is therefore given by 
+\begin_inset Formula 
+\[
+dS_{s}=\left|\frac{\partial\boldsymbol{x}}{\partial\xi_{1}}\times\frac{\partial\boldsymbol{x}}{\partial\xi_{2}}\right|d\xi_{1}d\xi_{2}=\frac{d\xi_{1}d\xi_{2}}{\epsilon(s,t)},
+\]
+
+\end_inset
+
+from which follows that cross sectional area 
+\begin_inset Formula $A(s,t)$
+\end_inset
+
+ in the current configuration is given by 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+A(s,t)=\frac{\int_{\mathcal{A}(s)}d\xi_{1}d\xi_{2}}{\epsilon(s,t)}=\frac{A_{0}(s)}{\epsilon(s,t)}.
+\]
+
+\end_inset
+
+From equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: current material points-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ follows than that the centreline 
+\begin_inset Formula $\boldsymbol{r}(s,t)$
+\end_inset
+
+ is given by the average position of all material points within a cross
+ section 
+\begin_inset Formula $\boldsymbol{r}(s,t)=\left\langle \boldsymbol{x}\right\rangle _{\mathcal{A}(s)}/A(s)$
+\end_inset
+
+ where we used the shorthand notation 
+\begin_inset Formula $\left\langle f(\xi_{1},\xi_{2})\right\rangle _{\mathcal{A}(s)}=\int_{\mathcal{A}(s)}f(\xi_{1},\xi_{2})d\xi_{1}d\xi_{2}$
+\end_inset
+
+ as introduced in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Linn2013"
+literal "false"
+
+\end_inset
+
+.
+ The body frame vectors 
+\begin_inset Formula $\boldsymbol{d}_{1}^{0}(s),\boldsymbol{d}_{2}^{0}(s)$
+\end_inset
+
+ in the reference configuration are normally chosen to coincide with the
+ principal axes of the cross section 
+\begin_inset Formula $\mathcal{A}(s)$
+\end_inset
+
+ in the reference configuration.
+ Important geometrical properties are the second moment of area defined
+ as 
+\begin_inset Formula 
+\[
+I_{1}=\int_{\mathcal{A}(s,t)}\xi
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I_{1}(s)=\left\langle \xi_{2}^{2}\right\rangle _{\mathcal{A}(s)},I_{2}(s)=\left\langle \xi_{1}^{2}\right\rangle _{\mathcal{A}(s)},I_{3}(s)=\left\langle \xi_{1}^{2}+\xi_{2}^{2}\right\rangle _{\mathcal{A}(s)}=I_{1}(s)+I_{2}(s).
+\]
+
+\end_inset
+
+For circular cross sections 
+\begin_inset Formula 
+\begin{align*}
+I_{1}(s,t) & =\frac{\int_{\mathcal{A}(s)}\xi_{2}^{2}d\xi_{1}d\xi_{2}}{\epsilon^{2}(s,t)}=\frac{I_{1}^{(0)}(s,t)}{\epsilon^{2}(s,t)}\\
+I_{2}(s,t) & =\frac{\int_{\mathcal{A}(s)}\xi_{1}^{2}d\xi_{1}d\xi_{2}}{\epsilon^{2}(s,t)}=\frac{I_{2}^{(0)}(s,t)}{\epsilon^{2}(s,t)}\\
+I_{3}(s,t) & =\int_{\mathcal{A}(s)}\frac{\xi_{1}^{2}+\xi_{2}^{2}}{\epsilon(s,t)}\frac{d\xi_{1}d\xi_{2}}{\epsilon(s,t)}=
+\end{align*}
+
+\end_inset
+
+Remember that 
+\begin_inset Formula $s$
+\end_inset
+
+ is the arc length in the reference configuration which should not be confused
+ with the arc length 
+\begin_inset Formula $S(t)$
+\end_inset
+
+ of the current configuration which is in general time dependent because
+ the Cosserat rod is extensible.
+ For the remainder, we will write derivatives with respect to 
+\begin_inset Formula $s$
+\end_inset
+
+ and and time 
+\begin_inset Formula $t$
+\end_inset
+
+ as 
+\begin_inset Formula $\partial s$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial t$
+\end_inset
+
+, respectively.
+ The current arc length 
+\begin_inset Formula $S(t)$
+\end_inset
+
+ and the reference arc length 
+\begin_inset Formula $s$
+\end_inset
+
+ are related via the integral equation.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Here, we will consider the special case of a tapered incompressible Cosserat
+ rod with circular planar cross sections made out of a viscouselastic material.
+ To ensure the rods volume is conserved, the rod needs to undergo lateral
+ planar wrapping deformation such that the cross sectional radius shrinks
+ or extends to compensate for the rod's local stretch or compression 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gazzola2018"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Material strain measures
+\end_layout
+
+\begin_layout Standard
+As material strains measures, we use the generalized curvature vector 
+\begin_inset Formula $\boldsymbol{\kappa}(s,t)$
+\end_inset
+
+ and the shear-stretch vector 
+\begin_inset Formula $\boldsymbol{\sigma}(s,t)$
+\end_inset
+
+ which are both invariant with respect to translations and rotations of
+ the lab frame.
+ The generalized curvature vector is defined as the vector 
+\begin_inset Formula 
+\[
+\boldsymbol{\kappa}(s,t)=\frac{1}{\epsilon}\text{vec}\left[\partial_{s}\boldsymbol{Q}^{T}\boldsymbol{Q}\right],
+\]
+
+\end_inset
+
+associated with the skew-symmetric matrix 
+\begin_inset Formula $\text{\ensuremath{\partial_{s}\boldsymbol{Q}^{T}\boldsymbol{Q}}}$
+\end_inset
+
+.
+ Taking the derivative of equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: frame trafo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with respect to the current arc length 
+\begin_inset Formula $S$
+\end_inset
+
+ therefore yields the Frenet-Serret type equation 
+\begin_inset Formula 
+\[
+\partial_{S}\boldsymbol{d}_{k}(s,t)=\boldsymbol{\kappa}(s,t)\times\boldsymbol{d}_{k}(s,t).
+\]
+
+\end_inset
+
+From equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: vector trafo"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ follows that the body frame representation 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}$
+\end_inset
+
+ of the curvature vector 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}(s,t)=\boldsymbol{Q}(s,t)\boldsymbol{\kappa}(s,t)$
+\end_inset
+
+.
+ Using the Euler angle representation of 
+\begin_inset Formula $\boldsymbol{Q}(\boldsymbol{\theta})$
+\end_inset
+
+ given by equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: Q Euler angles"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, the curvature vector 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}$
+\end_inset
+
+ in the body frame can be expressed in terms of the spatial derivative of
+ 
+\begin_inset Formula 
+\[
+\overline{\boldsymbol{\kappa}}(\boldsymbol{\theta})=\boldsymbol{A}(\boldsymbol{\theta})\partial_{s}\boldsymbol{\theta},
+\]
+
+\end_inset
+
+with matrix 
+\begin_inset Formula $\boldsymbol{A}(\boldsymbol{\theta})$
+\end_inset
+
+ being defined as 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{A}(\boldsymbol{\theta})=\begin{bmatrix}0 & -\cos\alpha & \sin\alpha\cos\beta\\
+0 & -\sin\alpha & -\cos\alpha\cos\beta\\
+-1 & 0 & -\sin\beta
+\end{bmatrix}.\label{eq: matrix A}
+\end{equation}
+
+\end_inset
+
+The shear-stretch vector 
+\begin_inset Formula $\boldsymbol{\sigma}(s,t)$
+\end_inset
+
+ is defined as
+\begin_inset Formula 
+\[
+\boldsymbol{\sigma}(s,t)=\frac{\partial\boldsymbol{r}(s,t)}{\partial s}-\boldsymbol{d}_{3}(s,t).
+\]
+
+\end_inset
+
+The body frame representation 
+\begin_inset Formula $\overline{\boldsymbol{\sigma}}$
+\end_inset
+
+ of the shear-stretch vector is therefore given by 
+\begin_inset Formula 
+\[
+\overline{\boldsymbol{\sigma}}(s,t)=\boldsymbol{Q}\boldsymbol{\sigma}(s,t)=\boldsymbol{Q}\frac{\partial\boldsymbol{r}(s,t)}{\partial s}-\boldsymbol{e}_{3}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Governing equations 
+\end_layout
+
+\begin_layout Standard
+Since cross sections are modeled as rigid disks, their dynamics can be fully
+ described in terms of a translation of their centre of mass and a rotation
+ around their centre of mass.
+ For the Cosserat rod, the translation of Cross sections centre of mass
+ over time is described by the centreline velocity 
+\begin_inset Formula $\boldsymbol{u}(s,t)$
+\end_inset
+
+ given by 
+\begin_inset Formula 
+\[
+\boldsymbol{u}(s,t)=\partial_{t}\boldsymbol{r}(s,t).
+\]
+
+\end_inset
+
+The rotation of cross sections with respect to their centre of mass is described
+ by the angular 
+\begin_inset Formula $\boldsymbol{\omega}(s,t)$
+\end_inset
+
+ which can be expressed in terms of the time derivative of the Euler angles
+ 
+\begin_inset Formula $\boldsymbol{\theta}(s,t)$
+\end_inset
+
+ via the equation 
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{\omega}(s,t) & =\boldsymbol{A}(\boldsymbol{\theta})\partial_{t}\boldsymbol{\theta}(s,t),
+\end{align*}
+
+\end_inset
+
+with matrix 
+\begin_inset Formula $\boldsymbol{A}(\boldsymbol{\theta})$
+\end_inset
+
+ given by equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: matrix A"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Each cross section has six degrees of freedom, namely three centreline
+ coordinates 
+\begin_inset Formula $\boldsymbol{r}(s,t)$
+\end_inset
+
+ and three Euler angles 
+\begin_inset Formula $\boldsymbol{\theta}(s,t)$
+\end_inset
+
+.
+ The time evolution of 
+\begin_inset Formula $\boldsymbol{r}(s,t)$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{\theta}(s,t)$
+\end_inset
+
+ is governed by the classical equations of motion referred to as the linear
+ balance and angular balance equation
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Antman2005"
+literal "false"
+
+\end_inset
+
+.
+ They are given by
+\begin_inset Formula 
+\begin{align}
+\varrho(s)\partial_{t}\boldsymbol{u}(s,t) & =\boldsymbol{f}(s,t)+\partial_{s}\boldsymbol{n}(s,t),\label{eq: linear balance}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\left(\boldsymbol{J}(s,t)\boldsymbol{\omega}(s,t)\right)=\boldsymbol{l}(s,t)+\partial_{s}\boldsymbol{r}(s,t)\times\boldsymbol{n}(s,t)+\partial_{s}\boldsymbol{m}(s,t).\label{eq: angular balance}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\boldsymbol{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{m}$
+\end_inset
+
+ are the internal contact force and contact torque, 
+\begin_inset Formula $\boldsymbol{f}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{l}$
+\end_inset
+
+ are the external force and torque densities per unit reference length,
+ 
+\begin_inset Formula $\varrho$
+\end_inset
+
+ is the mass density per unit reference length defined in equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: line mass density"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{J}(s,t)$
+\end_inset
+
+ is the cross section's inertia tensor per unit reference length.
+\end_layout
+
+\begin_layout Standard
+The linear balance angular equation can be derived from the integral form
+ of Newton's second law, it simply states that the net force acting on the
+ material of an arbitrary segment of the rod must be equal to the time derivativ
+e of the linear momentum of this segment.
+ Likewise, the angular balance equation states that the net torque about
+ the origin of the lab frame acting on the material of an arbitrary segment
+ of the rod, must be equal to the time derivative of the angular momentum
+ of this segment.
+ 
+\end_layout
+
+\begin_layout Standard
+The inertia tensor 
+\begin_inset Formula $\boldsymbol{J}(s,t)$
+\end_inset
+
+ is a symmetric tensor, and it is therefore always possible to find a unitary
+ transformation which diagonalizes 
+\begin_inset Formula $\boldsymbol{J}(s,t)$
+\end_inset
+
+.
+ If we choose the body frame vectors 
+\begin_inset Formula $\boldsymbol{d}_{1}^{0}(s,t),\boldsymbol{d}_{2}^{0}(s,t)$
+\end_inset
+
+ in the reference configuration to coincide with the symmetry axes of the
+ cross sections then 
+\begin_inset Formula 
+\[
+\boldsymbol{I}=\boldsymbol{Q}^{T}\overline{\boldsymbol{I}}\boldsymbol{Q},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\overline{\boldsymbol{I}}(s)$
+\end_inset
+
+ is the diagonal inertia tensor in the body frame which is time independent
+ for rigid cross sections.
+ Its diagonal elements are given
+\begin_inset Formula 
+\begin{align*}
+\overline{I}_{1} & =\int_{A(s)}\rho(\boldsymbol{x})x_{2}^{2}j(\boldsymbol{x})dx_{1}dx_{2},\\
+\overline{I}_{2} & =\int_{A(s)}\rho(\boldsymbol{x})x_{1}^{2}j(\boldsymbol{x})dx_{1}dx_{2},\\
+\overline{I}_{3} & =\int_{A(s)}\rho(\boldsymbol{x})\left(x_{1}^{2}+x_{2}^{2}\right)j(\boldsymbol{x})dx_{1}dx_{2}.
+\end{align*}
+
+\end_inset
+
+For rigid cross sections, the inertia tensor 
+\begin_inset Formula $\overline{\boldsymbol{I}}$
+\end_inset
+
+ in the body frame is time independent.
+ To use the balance equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: linear balance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: angular balance"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we need to specify the constituency laws which determine the internal
+ contact force and torque and the external forces which act on the swimmers
+ body.
+\end_layout
+
+\begin_layout Subsection*
+Constituency laws
+\end_layout
+
+\begin_layout Standard
+Here, we assume that the microswimmer can be modeled as a linear viscoelastic
+ material, i.e.
+ the elastic stress depends linearly on the strain and the viscous stress
+ depends linearly on temporal strain rates.
+ Strains and stresses are easiest expressed in the body frame.
+ Strains are measured by the curvature vector 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}$
+\end_inset
+
+ and the shear-stretch vector 
+\begin_inset Formula $\overline{\boldsymbol{\sigma}}$
+\end_inset
+
+ in the body frame are given by 
+\begin_inset Formula 
+\[
+\overline{\boldsymbol{\kappa}}=\frac{1}{\epsilon}\boldsymbol{A}\partial_{s}\boldsymbol{\theta},\quad\overline{\boldsymbol{\sigma}}\coloneqq\boldsymbol{Q}\partial_{s}\boldsymbol{r}-\boldsymbol{e}_{3},
+\]
+
+\end_inset
+
+The proportionality factors between the strains and the resulting stresses
+ can be obtained by integrating the force and torque densities over the
+ cross-sectional area 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ This yields the bending, twist, shear and stretch rigidities and body viscositi
+es 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Linn2013"
+literal "false"
+
+\end_inset
+
+ given in table 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "tab: strain stress table"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The last column in table 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "tab: strain stress table"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ gives the resulting internal loads which can be conveniently written as
+ two vector equations.
+ The first expresses the internal force 
+\begin_inset Formula $\overline{\boldsymbol{n}}$
+\end_inset
+
+ in the body frame as a function of the shear-stretch vector 
+\begin_inset Formula $\overline{\boldsymbol{\sigma}}$
+\end_inset
+
+ and its time derivative 
+\begin_inset Formula $\overline{\boldsymbol{\sigma}}_{t}$
+\end_inset
+
+ and is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\overline{\boldsymbol{n}}=\boldsymbol{S}\overline{\boldsymbol{\sigma}}+\tilde{\boldsymbol{S}}\partial_{t}\overline{\boldsymbol{\sigma}},\label{eq: n}
+\end{equation}
+
+\end_inset
+
+the other expresses the internal torque 
+\begin_inset Formula $\overline{\boldsymbol{m}}$
+\end_inset
+
+ as a function of the curvature 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}$
+\end_inset
+
+ vector and its time derivative
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}_{t}$
+\end_inset
+
+ and is given by
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Formula 
+\begin{align}
+\overline{\boldsymbol{m}} & =\boldsymbol{B}\overline{\boldsymbol{\kappa}}+\tilde{\boldsymbol{B}}\partial_{t}\overline{\boldsymbol{\kappa}}.\label{eq: m}
+\end{align}
+
+\end_inset
+
+
+\series default
+For an isotropic material, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\boldsymbol{S},\,\tilde{\boldsymbol{S}},\,\boldsymbol{B}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{\boldsymbol{B}}$
+\end_inset
+
+ are diagonal matrices.
+ The elastic properties of the rod are determined by the diagonal elements
+ 
+\begin_inset Formula $\alpha_{1}GA,\alpha_{2}GA_{2},EA,EI_{1},EI_{2},\alpha_{3}GI_{3}$
+\end_inset
+
+ of 
+\begin_inset Formula $\boldsymbol{S}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{B}$
+\end_inset
+
+ which we refer to as effective rigidities.
+ They effective rigidities depend on the geometry of the cross-section via
+ the cross-sectional area 
+\begin_inset Formula $A$
+\end_inset
+
+ and the diagonal elements 
+\begin_inset Formula $I_{1},I_{2},\alpha_{\text{T}}I_{3}$
+\end_inset
+
+ of the geometric moment of inertia tensor 
+\begin_inset Formula $\boldsymbol{I}=\text{diag}(I_{1},I_{2},I_{3})$
+\end_inset
+
+.
+ They also depend on the material properties of the rod which are expressed
+ in terms of the Young's modulus 
+\begin_inset Formula $E$
+\end_inset
+
+ and the shear modulus 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ The viscous damping parameters of the model are determined by the diagonal
+ elements 
+\begin_inset Formula $\alpha_{1}\nu A,\alpha_{2}\nu A,\eta A,\eta I_{1},\eta I_{2},\alpha_{3}\nu I_{3}$
+\end_inset
+
+ of 
+\begin_inset Formula $\tilde{\boldsymbol{S}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{\boldsymbol{B}}$
+\end_inset
+
+ which we refer to as effective viscosities.
+ Note that the effective viscosities have the same geometric dependence
+ as the effective rigidities.
+ Their dependence on the material properties of the rod is expressed in
+ terms of the extensional viscosity 
+\begin_inset Formula $\eta$
+\end_inset
+
+ and shear viscosity 
+\begin_inset Formula $\nu$
+\end_inset
+
+.
+ The coefficients 
+\begin_inset Formula $0<\alpha_{1},\alpha_{2}\leq1$
+\end_inset
+
+ are the shear corrections factors and 
+\begin_inset Formula $0<\alpha_{\text{T}}\leq1$
+\end_inset
+
+ is the torsional shear correction factor know from linear Timoshenko beam
+ theory 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dong2010"
+literal "false"
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+.
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+For a circular cross-section, the cross-sectional area and the geometric
+ moments of inertia are given by 
+\begin_inset Formula 
+\begin{equation}
+A=\pi r^{2},I_{1}=I_{2}=\frac{\pi r^{4}}{4},\quad I_{3}=2I_{1}.\label{eq: geometric factors}
+\end{equation}
+
+\end_inset
+
+The elastic term in equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: n"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: m"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ models the passive resistance of the bodies material against being deformed
+ relative to its natural stress-free shape given by 
+\series bold
+
+\begin_inset Formula $\overline{\boldsymbol{\sigma}}=\boldsymbol{0}$
+\end_inset
+
+
+\series default
+ and 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}=\boldsymbol{0}$
+\end_inset
+
+.
+ The viscous terms in equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: n"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: m"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ are proportional to the temporal strain rates 
+\begin_inset Formula $\partial_{t}\overline{\boldsymbol{\kappa}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial_{t}\overline{\boldsymbol{\sigma}}$
+\end_inset
+
+ and therefore create internal forces and torques which work against the
+ passive elastic forces and torques, and are therefore referred to as viscous
+ damping.
+ 
+\end_layout
+
+\begin_layout Standard
+The curvature vector 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}$
+\end_inset
+
+ together with the shear-stretch vector 
+\begin_inset Formula $\overline{\boldsymbol{\sigma}}$
+\end_inset
+
+ span the shape-space of the rod.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+deformation modes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+strains
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+rigidities
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+viscosities
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+loads
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bending about 
+\begin_inset Formula $\boldsymbol{e}_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\kappa}_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{1}=EI_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{B}_{1}=\eta I_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{M}_{1}=B_{1}\overline{\kappa}_{1}+\tilde{B}_{1}\overline{\kappa}_{1,t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bending about 
+\begin_inset Formula $\boldsymbol{e}_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\kappa}_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{2}=EI_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{B}_{2}=\eta I_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{M}_{2}=B_{2}\overline{\kappa}_{2}+\tilde{B}_{2}\overline{\kappa}_{2,t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+twist about 
+\begin_inset Formula $\boldsymbol{e}_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\kappa}_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{3}=\alpha_{\text{T}}GI_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{B}_{3}=\alpha_{\text{T}}\nu I_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{M}_{3}=B_{3}\overline{\kappa}_{3}+\tilde{B}_{3}\overline{\kappa}_{3,t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shear along 
+\begin_inset Formula $\boldsymbol{e}_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\sigma}_{1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S_{1}=\alpha_{1}GA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{S}_{1}=\alpha_{1}\nu A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{F}_{1}=S_{1}\overline{\sigma}_{1}+\tilde{S}_{1}\overline{\sigma}_{1,t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+shear along 
+\begin_inset Formula $\boldsymbol{e}_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\sigma}_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S_{2}=\alpha_{2}GA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{S}_{2}=$
+\end_inset
+
+
+\begin_inset Formula $\alpha_{2}\nu A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{F}_{2}=S_{2}\overline{\sigma}_{2}+\tilde{S}_{2}\overline{\sigma}_{2,t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+stretch along 
+\begin_inset Formula $\boldsymbol{e}_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{\sigma}_{3}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $S_{3}=EA$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{S}_{3}=\eta A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{F}_{3}=S_{3}\overline{\sigma}_{3}+\tilde{S}_{3}\overline{\sigma}_{3,t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Constitutive laws: The first two elements 
+\begin_inset Formula $\overline{\kappa}_{1},\overline{\kappa}_{2}$
+\end_inset
+
+ of the generalized curvature 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}$
+\end_inset
+
+ are associated with bending around the principal directions 
+\begin_inset Formula $(\boldsymbol{d}_{1},\boldsymbol{d}_{2})$
+\end_inset
+
+ and the third component 
+\begin_inset Formula $\overline{\kappa}_{3}$
+\end_inset
+
+ is associated with twist around the normal direction 
+\begin_inset Formula $\boldsymbol{d}_{3}$
+\end_inset
+
+, while the first two 
+\begin_inset Formula $\overline{\sigma}_{1},\overline{\sigma}_{2}$
+\end_inset
+
+ components of the shear-stretch vector 
+\begin_inset Formula $\overline{\boldsymbol{\sigma}}$
+\end_inset
+
+ are associated with shear along the principal directions 
+\begin_inset Formula $(\boldsymbol{d}_{1},\boldsymbol{d}_{2})$
+\end_inset
+
+ and the third component 
+\begin_inset Formula $\overline{\sigma}_{3}$
+\end_inset
+
+ is associated with stretch or compression around the normal direction 
+\begin_inset Formula $\boldsymbol{d}_{3}$
+\end_inset
+
+.
+ Muscle activations are modeled by the the preferred strains 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}}_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{\boldsymbol{\sigma}}_{0}$
+\end_inset
+
+.
+ The viscous loads are proportional to the temporal strain rates 
+\begin_inset Formula $\overline{\kappa}_{i,t}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{\sigma}_{i,t}$
+\end_inset
+
+.
+ The proportionality factors between strains/strain rates and resulting
+ loads depend on the material and geometric properties of the rod.
+ They are given by elements 
+\begin_inset Formula $B_{i},\tilde{B}_{i},S_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{S}_{i}$
+\end_inset
+
+ of the diagonal effective rigidity and viscosity matrices.
+ The material properties of the rod are characterized by the Young's modulus
+ 
+\begin_inset Formula $E$
+\end_inset
+
+, the shear modulus 
+\begin_inset Formula $G$
+\end_inset
+
+, and the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+extensional
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ viscosity 
+\begin_inset Formula $\eta$
+\end_inset
+
+ and shear viscosity 
+\begin_inset Formula $\nu$
+\end_inset
+
+.
+ The geometrical properties can be expressed in terms of the cross-sectional
+ area 
+\begin_inset Formula $A$
+\end_inset
+
+, and the elements 
+\begin_inset Formula $I_{i}$
+\end_inset
+
+ of the diagonal second moment of area tensor 
+\series bold
+
+\begin_inset Formula $I$
+\end_inset
+
+
+\series default
+.
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+The coefficients 
+\begin_inset Formula $0<\alpha_{1},\alpha_{2}\leq1$
+\end_inset
+
+ are the shear corrections factors and 
+\begin_inset Formula $0<\alpha_{\text{T}}\leq1$
+\end_inset
+
+ is the torsional shear correction factor.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "tab: strain stress table"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "../PhD_new/Literature/all"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+External forces
+\end_layout
+
+\begin_layout Standard
+For swimming organisms, gravity can be ignored 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Quote
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Energies
+\end_layout
+
+\begin_layout Standard
+For a microswimmer modeled as a viscouselastic Cosserat rod deforming in
+ a Newtonian fluid who is controlled by muscle torques and forces, we distinguis
+h between four types of energies, the kinetic energy of the rod, the potential
+ elastic energy stored in the rod's current configuration, the dissipative
+ energy, and the mechanical work done by the muscles.
+ The kinetic energy of the rod is given by 
+\begin_inset Formula 
+\begin{equation}
+E_{\text{kin}}=\frac{1}{2}\int_{-l_{0}}^{l_{0}}\left(\boldsymbol{u}^{T}\varrho(s)\boldsymbol{u}+\overline{\boldsymbol{\omega}}^{T}\overline{\boldsymbol{J}}(s)\overline{\boldsymbol{\omega}}\right)ds\label{eq: kinetic energy}
+\end{equation}
+
+\end_inset
+
+Taking the time derivative of equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: kinetic energy"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\[
+\dot{E}_{\text{kin}}(t)=\int_{-l_{0}}^{l_{0}}\left(\boldsymbol{u}^{T}\varrho(s)\partial_{t}\boldsymbol{u}+\overline{\boldsymbol{\omega}}^{T}\overline{\boldsymbol{J}}(s)\partial_{t}\overline{\boldsymbol{\omega}}\right)ds,
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $\dot{E}_{\text{kin}}(t)=\partial_{t}E_{\text{kin}}$
+\end_inset
+
+ being rate at which the kinetic energy of the rod changes.
+ The elastic potential energy 
+\begin_inset Formula $V(t)$
+\end_inset
+
+ depends linearly on the effective rigidities 
+\begin_inset Formula $\boldsymbol{B},\boldsymbol{S}$
+\end_inset
+
+ and quadratic on the strains 
+\begin_inset Formula $\overline{\boldsymbol{\kappa}},\overline{\boldsymbol{\sigma}}$
+\end_inset
+
+ and is given by 
+\begin_inset Formula 
+\begin{align}
+V(t) & =\frac{1}{2}\int_{-l_{0}}^{l_{0}}\left(\overline{\boldsymbol{\kappa}}^{T}\boldsymbol{B}\,\overline{\boldsymbol{\kappa}}+\overline{\boldsymbol{\sigma}}^{T}\boldsymbol{S}\,\overline{\boldsymbol{\sigma}}\right)\,ds.\label{eq: elastic potential}
+\end{align}
+
+\end_inset
+
+Note that 
+\begin_inset Formula $V(t)\geq0\quad\forall\,t$
+\end_inset
+
+ which follows from 
+\begin_inset Formula $\boldsymbol{B}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{S}$
+\end_inset
+
+ being positive matrices 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Linn2013,Lang2013"
+literal "false"
+
+\end_inset
+
+.
+ Taking the time derivative of equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: elastic potential"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\[
+\dot{V}(t)=\int_{-l_{0}}^{l_{0}}\left(\overline{\boldsymbol{\kappa}}^{T}\boldsymbol{B}\,\partial_{t}\overline{\boldsymbol{\kappa}}+\overline{\boldsymbol{\sigma}}^{T}\boldsymbol{S}\,\partial_{t}\overline{\boldsymbol{\sigma}}\right)\,ds,
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $\dot{V}(t)=\partial_{t}V(t)$
+\end_inset
+
+ being the rate with which the potential elastic energy changes.
+ Here, we used that the matrices 
+\begin_inset Formula $\boldsymbol{B}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{S}$
+\end_inset
+
+ are time independent in case of rigid cross sections.
+ In our system, energy is dissipated due to the viscosity of swimmer's body
+ material and due the friction between the swimmer's body surface and its
+ surrounding fluid environment.
+ The dissipation rate 
+\begin_inset Formula $\dot{D}_{\text{B}}(t)$
+\end_inset
+
+ of due to the viscosity of swimmer's body material depends linearly on
+ the effective viscosities 
+\begin_inset Formula $\boldsymbol{\tilde{B}},\tilde{\boldsymbol{S}}$
+\end_inset
+
+ and quadratically the strain rates 
+\begin_inset Formula $\partial_{t}\overline{\boldsymbol{\kappa}},\partial_{t}\boldsymbol{\overline{\sigma}}$
+\end_inset
+
+ and is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\dot{D}_{\text{B}}(t) & =-\int_{-l_{0}}^{l_{0}}\left(\partial_{t}\overline{\boldsymbol{\kappa}}^{T}\tilde{\boldsymbol{B}}\,\partial_{t}\overline{\boldsymbol{\kappa}}+\partial_{t}\overline{\boldsymbol{\sigma}}^{T}\tilde{\boldsymbol{S}}\,\partial_{t}\overline{\boldsymbol{\sigma}}\right)\,ds,\label{eq: viscos dissipative rate}
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\dot{D}_{\text{B}}(t)\leq0\quad\forall\,t$
+\end_inset
+
+ because 
+\begin_inset Formula $\tilde{\boldsymbol{B}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{\boldsymbol{S}}$
+\end_inset
+
+ are positive matrices 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Linn2013,Lang2013"
+literal "false"
+
+\end_inset
+
+.
+ The dissipation rate 
+\begin_inset Formula $\dot{D}_{\text{F}}(t)$
+\end_inset
+
+ at which energy is dissipated into the fluid is given by 
+\begin_inset Formula 
+\begin{equation}
+\dot{D}_{\text{F}}(t)=\int_{-l_{0}}^{l_{0}}\left(\boldsymbol{f}_{\text{F}}\cdot\boldsymbol{u}+\boldsymbol{l}_{\text{F}}\cdot\omega\right)\,ds,\label{eq: fluid dissipation}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\dot{D}_{\text{F}}(t)\leq0\quad\forall\,t$
+\end_inset
+
+ which follows from 
+\begin_inset Formula $\boldsymbol{f}_{\text{F}}\sim-\boldsymbol{u}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{l}_{\text{F}}\sim-\boldsymbol{\omega}$
+\end_inset
+
+.
+ We define the total dissipation rate 
+\begin_inset Formula $\dot{D}(t)=\dot{D}_{\text{F}}(t)+\dot{W}(t)$
+\end_inset
+
+.
+ The rate 
+\begin_inset Formula $\dot{W}_{\text{M}}(t)$
+\end_inset
+
+ of mechanical work done by the muscles is given by
+\begin_inset Formula 
+\[
+\dot{W}_{\text{M}}=\int_{-l_{0}}^{l_{0}}\boldsymbol{f}_{\text{M}}\cdot\boldsymbol{u}+\boldsymbol{l}_{\text{M}}\cdot\omega.
+\]
+
+\end_inset
+
+For energy to be conserved, energy rates need to balance at all times 
+\begin_inset Formula 
+\[
+0=\dot{W}_{\text{M}}+\dot{D}(t)-\dot{V}(t)+\dot{E}{}_{\text{kin}}(t).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+has elliptic cross sections so that the domain 
+\begin_inset Formula $\xi_{1},\xi_{2}$
+\end_inset
+
+ is implicitly given by the inequality 
+\begin_inset Formula 
+\[
+\frac{\xi_{1}^{2}}{a^{2}(s)}+\frac{\xi_{2}^{2}}{b^{2}(s)}\leq1.
+\]
+
+\end_inset
+
+The ratio between semi-minor 
+\begin_inset Formula $b(s)$
+\end_inset
+
+ and the semi-major 
+\begin_inset Formula $a(s)$
+\end_inset
+
+ axes of the elliptical cross sections is assumed to be constant along the
+ body, i.e.
+ 
+\begin_inset Formula $c=b(s)/a(s)$
+\end_inset
+
+.
+ The shape of the cross sections is therefore fully defined in terms of
+ the semi-major 
+\begin_inset Formula $a(s)$
+\end_inset
+
+ axis given by
+\begin_inset Formula 
+\[
+a(s)=a_{\text{max}}\varphi(s),\quad\varphi(s)\in[0,1]
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $\varphi(s)$
+\end_inset
+
+ being the axis amplitude function and 
+\begin_inset Formula $a_{\text{max}}$
+\end_inset
+
+ the maximum size of major axis.
+ The circular cross-sectional area in reference configuration is therefore
+ given by 
+\begin_inset Formula 
+\begin{equation}
+A_{0}(\hat{s})=\pi r_{\text{max}}^{2}\varphi^{2}(\hat{s}).\label{eq: A_0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
